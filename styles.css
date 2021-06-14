@@ -20,7 +20,7 @@ body {
 .dot {
     height: 2vw;
     width: 2vw;
-    background-color: black;
+    background-color: grey;
     border-radius: 50%;
     display: inline-block;
     transition: all ease-in-out 500ms;
@@ -31,7 +31,7 @@ body {
     width: 1.5vw;
     margin-left: 0.25vw;
     margin-top: 0.25vw;
-    background-color: black;
+    background-color: grey;
     border-radius: 50%;
     display: inline-block;
     transition: all ease-in-out 500ms;
@@ -40,7 +40,7 @@ body {
 .dot:hover {
     height: 2vw;
     width: 2vw;
-    background-color: rgb(170, 170, 170);
+    background-color: black;
     border-width: 15px;
     border-color: aqua;
     transition: all ease-in-out 500ms;
