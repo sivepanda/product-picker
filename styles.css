@@ -23,7 +23,7 @@ body {
     background-color: grey;
     border-radius: 50%;
     display: inline-block;
-    transition: all ease-in-out 500ms;
+    transition: all ease-in-out 250ms;
 }
 
 .dotimg {
@@ -34,7 +34,7 @@ body {
     background-color: grey;
     border-radius: 50%;
     display: inline-block;
-    transition: all ease-in-out 500ms;
+    transition: all ease-in-out 250ms;
 }
 
 .dot:hover {
@@ -42,6 +42,25 @@ body {
     width: 2vw;
     background-color: black;
     border-width: 15px;
-    border-color: aqua;
+    transition: all ease-in-out 500ms;
+}
+
+#addCart {
+    height: 10vh;
+    width: 10vw;
+}
+
+.specBtn {
+    height: 20vh;
+    border-radius: 1vh;
+    border-width: 0.05vh;
+    transition: all ease-in-out 250ms;
+}
+
+.specBtn:hover {
+    height: 20vh;
+    background-color: grey;
+    border-radius: 1vh;
+    border-width: 0.05vh;
     transition: all ease-in-out 500ms;
 }
