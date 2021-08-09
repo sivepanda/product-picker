@@ -1,0 +1,1 @@
+This folder contains tools to setup the product picker. It should not be included in any final release. THIS IS A TOOL WHOSE USE SHOULD BE RESITRICTED TO DEVS.

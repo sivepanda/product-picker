@@ -53,14 +53,30 @@ body {
 .specBtn {
     height: 20vh;
     border-radius: 1vh;
+    background-color: grey;
     border-width: 0.05vh;
     transition: all ease-in-out 250ms;
 }
 
 .specBtn:hover {
     height: 20vh;
-    background-color: grey;
+    background-color: black;
     border-radius: 1vh;
     border-width: 0.05vh;
     transition: all ease-in-out 500ms;
+}
+
+.cart-content {
+    display: grid;
+    grid-template-columns: 5vw 5vw;
+}
+
+.color {
+    font-size: 2vh;
+    grid-column: 1;
+}
+
+.spec {
+    font-size: 2vh;
+    grid-column: 2;
 }

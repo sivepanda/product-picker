@@ -1,8 +1,28 @@
+//DEFINITIONS -> Changable by use case
+
+//these are the specification levels of your product.
+//      >>THE NUMBER OF THESE MUST BE GREATER THAN OR EQUAL TO THE NUMBER OF SPECIFICATION LEVELS OF YOUR PRODUCT.
+var specDef = ["Premium", "Advanced", "Standard"];
+
+
+
+
+
+
+
+
+
 //storage for opened window
 var windowStrage = window.localStorage;
 
 //list that contains all the products in the "cart". Saved to session storage and is reset on session end.
-var cart = [];
+if (JSON.parse(localStorage.getItem("cart")) != null) {
+    var cart = [];
+    //var cart = JSON.parse(localStorage.getItem("cart"));
+} else {
+    var cart = [];
+}
+
 
 //class that holds individual products
 class Product {
@@ -10,6 +30,18 @@ class Product {
         this.color = color;
         this.spec = spec;
         this.price = price;
+    }
+    getSpec() {
+
+        return this.spec;
+    }
+
+    getPrice() {
+        return this.price;
+    }
+
+    getColor() {
+        return this.color;
     }
 }
 
@@ -29,12 +61,12 @@ var optionButtonsArr = Array.from(optionButtons);
 pickerButtonsArr.forEach(addPickerListener);
 optionButtonsArr.forEach(addOptionListener);
 
-//add an event listener to each item picker that changes visual elements
+//add an event listener to each item picker that changes visual elements -- SPECIFICATION
 function addPickerListener(item, index) {
     var id = item.parentNode.parentNode.getAttribute("id");
     var element = item.parentNode.getAttribute("id");
 
-    product.color = id;
+    product.color = index;
     price += index * 10;
 
     image.src = "resources/" + id + "/" + element + "/" + id + "_0.png";
@@ -48,19 +80,19 @@ function addPickerListener(item, index) {
     });
 }
 
-//add an event listener to each item picker that changes visual elements
+//add an event listener to each item picker that changes visual elements -- COLOR
 function addOptionListener(item, index) {
     var id = item.parentNode.parentNode.getAttribute("id");
     var element = item.parentNode.getAttribute("id");
-    product.spec = element;
+    product.spec = index;
 
     price += index * 20;
 
     item.addEventListener("click", function() {
         optionIndex = index;
         reset(optionButtonsArr, "option")
-        document.activeElement.style.color = "black";
-        document.activeElement.style.backgroundColor = "white";
+        document.activeElement.style.color = "white";
+        document.activeElement.style.backgroundColor = "black";
     });
 }
 
@@ -75,6 +107,27 @@ function reset(elements, type) {
 }
 
 function addToCart() {
-    cart.append(product);
-    localStorage.push('products', JSON.stringify(cart));
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function setCart() {
+    var cart = JSON.parse(localStorage.getItem("cart"));
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < cart.length; i++) {
+        const newDiv = document.createElement("div");
+        addElement("color", "Color: " + cart[i].color);
+        addElement("spec", "Spec: " + cart[i].spec);
+    }
+}
+
+
+function addElement(className, textContent) {
+    const newDiv = document.createElement("div");
+    newDiv.className = className;
+    const newContent = document.createTextNode(textContent);
+    newDiv.appendChild(newContent);
+    const cartContent = document.getElementById("cart-content")
+    const currentDiv = document.getElementById("placeholder");
+    cartContent.insertBefore(newDiv, currentDiv);
 }
