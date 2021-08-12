@@ -50,6 +50,11 @@ body {
     width: 10vw;
 }
 
+#clearCart {
+    height: 10vh;
+    width: 10vw;
+}
+
 .specBtn {
     height: 20vh;
     border-radius: 1vh;
@@ -60,7 +65,7 @@ body {
 
 .specBtn:hover {
     height: 20vh;
-    background-color: black;
+    background-color: darkgrey;
     border-radius: 1vh;
     border-width: 0.05vh;
     transition: all ease-in-out 500ms;
@@ -68,7 +73,7 @@ body {
 
 .cart-content {
     display: grid;
-    grid-template-columns: 5vw 5vw;
+    grid-template-columns: 10vw 10vw 10vw;
 }
 
 .color {
@@ -79,4 +84,9 @@ body {
 .spec {
     font-size: 2vh;
     grid-column: 2;
+}
+
+.price {
+    font-size: 2vh;
+    grid-column: 3;
 }
