@@ -11,12 +11,13 @@
 <body>
     <h1>Welcome to my epic cart. It's pretty cool.</h1>
     <div id="cart-content" class="cart-content">
-        <div id="placeholder"></div>
+        <div id="placeholder-cart"></div>
     </div>
     <button class="clearCart" id="clearCart" onclick="clearCart()">Clear Cart</button>
     <script src="defs.json"></script>
     <script src="js/productpicker.js"></script>
     <script>
+        var doButtons = false;
         window.onload = setCart();
     </script>
 </body>
